@@ -139,7 +139,12 @@ export default function LandingPage() {
         window.location.href = res.url;
       }
     } catch (err: unknown) {
-      alert(err instanceof Error ? err.message : "Payment checkout failed");
+      const msg = err instanceof Error ? err.message : "";
+      if (msg.includes("401") || msg.toLowerCase().includes("unauthorized")) {
+        router.push("/login");
+      } else {
+        alert(msg || "Payment checkout failed");
+      }
     } finally {
       setCheckoutLoading(null);
     }

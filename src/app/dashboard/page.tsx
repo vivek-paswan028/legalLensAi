@@ -47,7 +47,12 @@ export default function DashboardPage() {
                 window.location.href = res.url;
             }
         } catch (err: unknown) {
-            setError(err instanceof Error ? err.message : "Failed to launch payment checkout");
+            const msg = err instanceof Error ? err.message : "";
+            if (msg.includes("401") || msg.toLowerCase().includes("unauthorized")) {
+                router.push("/login");
+            } else {
+                setError(msg || "Failed to launch payment checkout");
+            }
         } finally {
             setUpgrading(false);
         }
