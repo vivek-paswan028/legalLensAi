@@ -20,6 +20,22 @@
 # production
 /build
 
+# Python & Virtual Environments
+venv/
+backend/venv/
+__pycache__/
+*.pyc
+backend/__pycache__/
+backend/app/__pycache__/
+backend/app/*/__pycache__/
+backend/app/*/*/__pycache__/
+backend/uploads/
+
+# Databases
+*.db
+backend/*.db
+legallens.db
+
 # misc
 .DS_Store
 *.pem
@@ -30,7 +46,7 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env files
 .env*
 
 # vercel
