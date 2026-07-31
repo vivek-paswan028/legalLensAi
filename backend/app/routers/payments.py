@@ -18,6 +18,7 @@ except ImportError:
 
 
 @router.post("/create-checkout-session")
+@router.post("/create-checkout-session/")
 async def create_checkout_session(
     request: Request,
     user: User = Depends(get_current_user),
