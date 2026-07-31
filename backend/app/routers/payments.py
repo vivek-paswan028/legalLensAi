@@ -24,7 +24,10 @@ async def create_checkout_session(
     db: Session = Depends(get_db)
 ):
     """Create a Stripe Checkout Session for Professional tier subscription ($49/mo)."""
-    body = await request.json().catch(lambda: {}) if request.headers.get("content-type") == "application/json" else {}
+    try:
+        body = await request.json() if request.headers.get("content-type") == "application/json" else {}
+    except Exception:
+        body = {}
     plan_tier = body.get("tier", "pro")
 
     if not settings.STRIPE_SECRET_KEY or stripe is None:
