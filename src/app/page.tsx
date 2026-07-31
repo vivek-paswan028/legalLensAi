@@ -2,6 +2,9 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/auth-context";
+import { api } from "@/lib/api";
 
 const features = [
   {
@@ -106,12 +109,41 @@ const pricingPlans = [
 
 export default function LandingPage() {
   const [scrolled, setScrolled] = useState(false);
+  const [checkoutLoading, setCheckoutLoading] = useState<string | null>(null);
+  const { user } = useAuth();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handlePricingClick = async (planName: string) => {
+    if (planName === "Free") {
+      router.push(user ? "/dashboard" : "/login");
+      return;
+    }
+    if (planName === "Enterprise") {
+      window.location.href = "mailto:sales@legallens.ai?subject=LegalLens%20Enterprise%20Plan%20Inquiry";
+      return;
+    }
+    if (!user) {
+      router.push("/login");
+      return;
+    }
+    try {
+      setCheckoutLoading(planName);
+      const res = await api.payments.createCheckoutSession("pro");
+      if (res.url) {
+        window.location.href = res.url;
+      }
+    } catch (err: unknown) {
+      alert(err instanceof Error ? err.message : "Payment checkout failed");
+    } finally {
+      setCheckoutLoading(null);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-dark-950 relative overflow-hidden">
@@ -450,12 +482,21 @@ export default function LandingPage() {
                   ))}
                 </ul>
                 <button
-                  className={`w-full py-3 rounded-xl font-semibold transition-all ${plan.popular
+                  onClick={() => handlePricingClick(plan.name)}
+                  disabled={checkoutLoading === plan.name}
+                  className={`w-full py-3 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 ${plan.popular
                     ? "bg-primary-600 hover:bg-primary-500 text-white hover:shadow-lg hover:shadow-primary-600/25"
                     : "glass text-dark-200 hover:text-white hover:bg-white/10"
-                    }`}
+                    } ${checkoutLoading === plan.name ? "opacity-75 cursor-not-allowed" : ""}`}
                 >
-                  {plan.cta}
+                  {checkoutLoading === plan.name ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Redirecting to Stripe...</span>
+                    </>
+                  ) : (
+                    plan.cta
+                  )}
                 </button>
               </div>
             ))}

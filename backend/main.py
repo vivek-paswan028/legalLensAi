@@ -105,11 +105,12 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-from app.routers import contracts, analysis, auth
+from app.routers import contracts, analysis, auth, payments
 
 app.include_router(auth.router, prefix="/api/auth", tags=["auth"])
 app.include_router(contracts.router, prefix="/api/contracts", tags=["contracts"])
 app.include_router(analysis.router, prefix="/api/analysis", tags=["analysis"])
+app.include_router(payments.router, prefix="/api/payments", tags=["payments"])
 
 
 @app.get("/api/health")

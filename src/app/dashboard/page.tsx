@@ -27,6 +27,32 @@ export default function DashboardPage() {
     const [loadingContracts, setLoadingContracts] = useState(true);
     const [error, setError] = useState("");
 
+    const [paymentMessage, setPaymentMessage] = useState("");
+    const [upgrading, setUpgrading] = useState(false);
+
+    useEffect(() => {
+        if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            if (params.get("payment") === "success") {
+                setPaymentMessage("🎉 Subscription activated! Your account has been upgraded to PRO (250 reviews/mo).");
+            }
+        }
+    }, []);
+
+    const handleUpgrade = async () => {
+        try {
+            setUpgrading(true);
+            const res = await api.payments.createCheckoutSession("pro");
+            if (res.url) {
+                window.location.href = res.url;
+            }
+        } catch (err: unknown) {
+            setError(err instanceof Error ? err.message : "Failed to launch payment checkout");
+        } finally {
+            setUpgrading(false);
+        }
+    };
+
     useEffect(() => {
         if (!authLoading && !isAuthenticated) {
             router.push("/login");
@@ -194,6 +220,13 @@ export default function DashboardPage() {
                         </span>
                     </Link>
                     <div className="flex items-center gap-4">
+                        <button
+                            onClick={handleUpgrade}
+                            disabled={upgrading}
+                            className="px-3 py-1.5 rounded-lg text-xs font-semibold bg-gradient-to-r from-primary-600 to-indigo-600 hover:from-primary-500 hover:to-indigo-500 text-white shadow-sm flex items-center gap-1.5 transition-all"
+                        >
+                            <span>⚡ Upgrade to Pro</span>
+                        </button>
                         <span className="text-sm text-dark-400">{user?.email}</span>
                         <button
                             onClick={() => {
@@ -212,6 +245,13 @@ export default function DashboardPage() {
             </header>
 
             <div className="relative max-w-7xl mx-auto px-6 py-10">
+                {paymentMessage && (
+                    <div className="mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-sm flex items-center justify-between">
+                        <span>{paymentMessage}</span>
+                        <button onClick={() => setPaymentMessage("")} className="text-emerald-400 hover:text-white">✕</button>
+                    </div>
+                )}
+
                 <div className="mb-10">
                     <h1 className="text-3xl font-bold text-white mb-2">
                         Welcome back, {user?.name?.split(" ")[0] || "User"}

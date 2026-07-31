@@ -162,6 +162,16 @@ export const api = {
             ),
     },
 
+    payments: {
+        createCheckoutSession: (tier: string = "pro") =>
+            request<{ url: string }>("/api/payments/create-checkout-session", {
+                method: "POST",
+                body: JSON.stringify({ tier }),
+            }),
+        getPortalUrl: () =>
+            request<{ url: string }>("/api/payments/portal"),
+    },
+
     health: () =>
         request<{ status: string; service: string; llm_provider: string; request_id?: string }>(
             "/api/health"

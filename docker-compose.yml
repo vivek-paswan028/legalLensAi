@@ -9,6 +9,9 @@ services:
       - DATABASE_URL=sqlite:////app/legallens.db
       - LLM_PROVIDER=demo
       - JWT_SECRET=super_secret_legal_lens_key_change_in_production
+      - STRIPE_SECRET_KEY=${STRIPE_SECRET_KEY:-}
+      - STRIPE_WEBHOOK_SECRET=${STRIPE_WEBHOOK_SECRET:-}
+      - STRIPE_PRICE_ID_PRO=${STRIPE_PRICE_ID_PRO:-}
     volumes:
       - backend_data:/app/uploads
       - backend_db:/app
