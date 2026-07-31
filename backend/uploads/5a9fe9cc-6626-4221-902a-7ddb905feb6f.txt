@@ -1,0 +1,11 @@
+SOFTWARE LICENSE AGREEMENT
+
+This Software License Agreement ("Agreement") is entered into by and between Licensor and Licensee.
+
+1. LICENSE GRANT. Licensor hereby grants to Licensee a non-exclusive, non-transferable license to use the Software.
+
+2. LIMITATION OF LIABILITY. Except for indemnification obligations, in no event shall either party be liable to the other for any indirect, incidental, special, or consequential damages.
+
+3. INDEMNIFICATION. Licensor shall defend, indemnify, and hold harmless Licensee from and against any claims arising out of intellectual property infringement.
+
+4. GOVERNING LAW. This Agreement shall be governed by the laws of the State of California.

@@ -1,0 +1,21 @@
+SOFTWARE SERVICE AGREEMENT
+
+This Software Service Agreement (the "Agreement") is entered into as of June 1, 2026, by and between LegalLens AI, Corp. ("Company"), and Sub Agent ("Client").
+
+1. SERVICES AND SUPPORT
+Company will use commercially reasonable efforts to provide Client the Services. Subject to the terms hereof, Company will provide Client with reasonable technical support services.
+
+2. RESTRICTIONS AND RESPONSIBILITIES
+Client will not, directly or indirectly: reverse engineer, decompile, disassemble or otherwise attempt to discover the source code, object code or underlying structure, ideas, know-how or algorithms relevant to the Services.
+
+3. CONFIDENTIALITY; PROPRIETARY RIGHTS
+Each party (the "Receiving Party") understands that the other party (the "Disclosing Party") has disclosed or may disclose business, technical or financial information or data relating to the Disclosing Party's business (hereinafter referred to as "Proprietary Information" of the Disclosing Party).
+
+4. WARRANTY AND DISCLAIMER
+Company shall use reasonable efforts consistent with prevailing industry standards to maintain the Services in a manner which minimizes errors and interruptions in the Services. SERVICES ARE PROVIDED "AS IS" AND COMPANY DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED.
+
+5. INDEMNIFICATION
+Company shall hold Client harmless from liability to third parties resulting from infringement by the Service of any United States patent or any copyright or misappropriation of any trade secret, provided Company is promptly notified of any and all threats, claims and proceedings related thereto.
+
+6. LIMITATION OF LIABILITY
+NOTWITHSTANDING ANYTHING TO THE CONTRARY, COMPANY AND ITS SUPPLIERS, OFFICERS, AFFILIATES, REPRESENTATIVES, CONTRACTORS AND EMPLOYEES SHALL NOT BE RESPONSIBLE OR LIABLE WITH RESPECT TO ANY SUBJECT MATTER OF THIS AGREEMENT OR TERMS AND CONDITIONS RELATED THERETO UNDER ANY CONTRACT, NEGLIGENCE, STRICT LIABILITY OR OTHER THEORY: (A) FOR ERROR OR INTERRUPTION OF USE OR FOR LOSS OR INACCURACY OR CORRUPTION OF DATA OR COST OF PROCUREMENT OF SUBSTITUTE GOODS, SERVICES OR TECHNOLOGY OR LOSS OF BUSINESS; (B) FOR ANY INDIRECT, EXEMPLARY, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES; OR (C) FOR ANY AMOUNTS THAT, TOGETHER WITH AMOUNTS ASSOCIATED WITH ALL OTHER CLAIMS, EXCEED THE FEES PAID BY CLIENT TO COMPANY FOR THE SERVICES UNDER THIS AGREEMENT.

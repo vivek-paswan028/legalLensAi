@@ -1,0 +1,1 @@
+This is a test contract for AI review. It contains various clauses that should be analyzed for legal risk.

@@ -1,0 +1,34 @@
+SOFTWARE LICENSE AND SERVICE AGREEMENT
+
+This Software License and Service Agreement (the "Agreement") is entered into as of May 27, 2026, by and between CloudSystems Corp ("Licensor") and Client Enterprises Inc ("Licensee").
+
+1. License Grant
+Subject to the terms and conditions of this Agreement, Licensor grants Licensee a non-exclusive, non-transferable, revocable license to use the CloudSystems Software (the "Software") solely for Licensee's internal business operations.
+
+2. Intellectual Property Ownership (High Risk Clause)
+Licensee agrees that all custom modifications, enhancements, developments, or derivative works of the Software created by either party, including any feedback provided by Licensee, shall be the sole and exclusive property of Licensor. Furthermore, Licensee hereby assigns and transfers all rights, title, and interest in any custom integrations developed by Licensee during the term of this Agreement to Licensor without any compensation.
+
+3. Payment Terms and Auto-Renewal (Medium Risk Clause)
+Licensee shall pay the annual subscription fee of $50,000. This Agreement shall automatically renew for successive one-year periods unless Licensee provides written notice of non-renewal at least ninety (90) days prior to the end of the then-current term. If notice is not received 90 days in advance, Licensee is committed to the next full annual term fee.
+
+4. Warranties and Disclaimer
+THE SOFTWARE IS PROVIDED "AS IS" AND LICENSOR DISCLAIMS ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
+
+5. Limitation of Liability and Indemnification (High Risk Clause)
+IN NO EVENT SHALL LICENSOR'S AGGREGATE LIABILITY ARISING OUT OF OR RELATED TO THIS AGREEMENT EXCEED THE TOTAL FEES PAID BY LICENSEE IN THE THREE (3) MONTHS PRECEDING THE CLAIM. 
+LICENSEE AGREES TO FULLY INDEMNIFY, DEFEND, AND HOLD HARMLESS LICENSOR FROM ANY THIRD-PARTY CLAIMS ARISING OUT OF LICENSEE'S USE OF THE SOFTWARE. LICENSEE'S LIABILITY FOR BREACH OF SECTION 2 (INTELLECTUAL PROPERTY) AND SECTION 5 (INDEMNIFICATION) SHALL BE ENTIRELY UNCAPPED AND UNLIMITED.
+
+6. Governing Law
+This Agreement shall be governed by and construed in accordance with the laws of the State of New York, without regard to its conflict of laws principles.
+
+IN WITNESS WHEREOF, the parties hereto have executed this Agreement as of the date first written above.
+
+CLOUDSYSTEMS CORP (Licensor):
+By: ___________________________
+Name: John Doe
+Title: VP of Sales
+
+CLIENT ENTERPRISES INC (Licensee):
+By: ___________________________
+Name: _________________________
+Title: ________________________

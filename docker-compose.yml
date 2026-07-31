@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: legallens_backend
+    restart: always
+    environment:
+      - DATABASE_URL=sqlite:////app/legallens.db
+      - LLM_PROVIDER=demo
+      - JWT_SECRET=super_secret_legal_lens_key_change_in_production
+    volumes:
+      - backend_data:/app/uploads
+      - backend_db:/app
+    networks:
+      - legallens_network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: legallens_frontend
+    restart: always
+    environment:
+      - NODE_ENV=production
+    networks:
+      - legallens_network
+
+  nginx:
+    image: nginx:alpine
+    container_name: legallens_nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    networks:
+      - legallens_network
+
+volumes:
+  backend_data:
+  backend_db:
+
+networks:
+  legallens_network:
+    driver: bridge

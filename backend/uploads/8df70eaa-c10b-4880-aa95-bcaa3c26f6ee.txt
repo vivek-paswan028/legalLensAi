@@ -1,0 +1,20 @@
+MUTUAL NON-DISCLOSURE AGREEMENT
+
+This Mutual Non-Disclosure Agreement ("Agreement") is entered into as of May 27, 2026, by and between the parties hereto.
+
+1. Purpose. The parties wish to explore a business opportunity of mutual interest.
+
+2. Confidential Information. "Confidential Information" means any proprietary or confidential information disclosed by one party to the other.
+
+3. Unilateral Indemnification (High Risk).
+The Receiving Party shall indemnify, defend, and hold harmless the Disclosing Party from and against any and all claims, liabilities, losses, damages, costs, and expenses (including reasonable attorneys' fees) arising out of or relating to any breach of this Agreement by the Receiving Party. The Disclosing Party shall have no obligation to indemnify the Receiving Party under any circumstances, and the Receiving Party hereby waives any claims for indemnification or contribution against the Disclosing Party.
+
+4. Term and Survival (Medium Risk).
+This Agreement shall terminate three (3) years from the date hereof. However, the obligations of confidentiality and non-use under this Agreement shall survive the termination or expiration of this Agreement for an extended period of ten (10) years.
+
+5. Limitation of Liability (High Risk).
+IN NO EVENT SHALL THE DISCLOSING PARTY BE LIABLE TO THE RECEIVING PARTY FOR ANY INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, PUNITIVE, OR CONSEQUENTIAL DAMAGES. THE DISCLOSING PARTY'S TOTAL AGGREGATE LIABILITY UNDER THIS AGREEMENT SHALL BE STRICTLY LIMITED TO $100. THE RECEIVING PARTY'S LIABILITY FOR ANY BREACH OF THIS AGREEMENT SHALL BE UNLIMITED AND UNCAPPED, AND NO LIMITATION OF LIABILITY SHALL APPLY TO THE RECEIVING PARTY.
+
+6. Governing Law. This Agreement shall be governed by the laws of California.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement.
