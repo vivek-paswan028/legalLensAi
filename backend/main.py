@@ -144,6 +144,8 @@ async def direct_create_checkout_session(
     return {"url": "/dashboard?payment=success&mode=demo"}
 
 
+@app.get("/")
+@app.get("/health")
 @app.get("/api/health")
 def health_check(request: Request):
     checks = {
