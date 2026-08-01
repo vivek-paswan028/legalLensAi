@@ -8,12 +8,12 @@ from starlette.requests import Request
 from starlette.responses import Response
 from pythonjsonlogger import jsonlogger
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
-from app.database import init_db, engine
+from app.database import init_db, engine, get_db
 from app.config import settings
 from app.services.limiter import limiter
 
@@ -127,6 +127,7 @@ app.include_router(payments.router, prefix="/payments", tags=["payments"])
 
 from app.deps import get_current_user_from_cookie
 from app.models.db_models import User, AuditLog
+from sqlalchemy.orm import Session
 
 @app.post("/api/payments/create-checkout-session")
 @app.post("/payments/create-checkout-session")
