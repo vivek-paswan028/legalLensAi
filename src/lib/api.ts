@@ -1,4 +1,16 @@
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "";
+function getApiBase(): string {
+    if (process.env.NEXT_PUBLIC_API_URL) {
+        return process.env.NEXT_PUBLIC_API_URL;
+    }
+    if (typeof window !== "undefined") {
+        if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+            if (window.location.port === "3000") {
+                return "http://localhost:8000";
+            }
+        }
+    }
+    return "";
+}
 
 async function request<T>(
     path: string,
@@ -12,7 +24,8 @@ async function request<T>(
         headers["Content-Type"] = "application/json";
     }
 
-    const res = await fetch(`${API_BASE}${path}`, {
+    const baseUrl = getApiBase();
+    const res = await fetch(`${baseUrl}${path}`, {
         ...options,
         headers,
         credentials: "include",
