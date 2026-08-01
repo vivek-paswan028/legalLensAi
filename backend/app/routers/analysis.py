@@ -99,14 +99,18 @@ async def _process_contract(contract_id: str, task_id: str, db_url: str) -> None
             db.commit()
             return
 
-        # Run AI analysis
-        llm = get_llm_client()
-        risk_agent = RiskAnalysisAgent(llm_client=llm)
-        summary_agent = SummaryAgent(llm_client=llm)
+        # Run AI analysis via LangGraph Engine (Google Gemini)
+        from app.agents.langgraph_agents import run_langgraph_analysis
+        from app.config import settings
 
         try:
-            analysis_data = await risk_agent.analyze(text)
-            summary_text = await summary_agent.summarize(text)
+            analysis_data = await run_langgraph_analysis(text, gemini_api_key=settings.GEMINI_API_KEY)
+            summary_text = analysis_data.get("executive_summary") or analysis_data.get("summary", "")
+        except Exception as e:
+            log.warning(f"LangGraph execution error: {str(e)}. Running fallback graph node.")
+            from app.agents.langgraph_agents import run_rule_based_fallback
+            analysis_data = run_rule_based_fallback(text)
+            summary_text = analysis_data.get("executive_summary", "")
         except Exception as e:
             db.rollback()
             task.status = "failed"

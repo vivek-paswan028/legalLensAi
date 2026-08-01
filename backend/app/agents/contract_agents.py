@@ -128,25 +128,20 @@ Respond with ONLY the revised clause text, no explanations.
 
 
 class RiskAnalysisAgent:
-    """Agent that analyzes contracts for legal risks."""
+    """LangGraph-backed Agent that analyzes contracts for legal risks using Google Gemini."""
 
     def __init__(self, llm_client=None):
         self.llm_client = llm_client
 
     async def analyze(self, contract_text: str) -> Dict[str, Any]:
-        """Analyze a contract and return risk assessment."""
-        prompt = RISK_ANALYSIS_PROMPT.replace("{contract_text}", contract_text[:15000])
+        """Analyze a contract using the LangGraph StateGraph pipeline."""
+        from app.agents.langgraph_agents import run_langgraph_analysis
+        from app.config import settings
 
-        if self.llm_client:
-            try:
-                response = await self._call_llm(prompt)
-                return json.loads(response)
-            except Exception as e:
-                import logging
-                logger = logging.getLogger("legallens")
-                logger.warning(f"LLM analysis failed, falling back to demo mode: {str(e)}")
-                return self._demo_analysis(contract_text)
-        else:
+        try:
+            return await run_langgraph_analysis(contract_text, gemini_api_key=settings.GEMINI_API_KEY)
+        except Exception as e:
+            log.warning(f"LangGraph execution failed: {e}. Running fallback graph mode.")
             return self._demo_analysis(contract_text)
 
     async def _call_llm(self, prompt: str) -> str:
